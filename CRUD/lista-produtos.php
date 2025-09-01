@@ -22,24 +22,25 @@ include_once './include/header.php';
         </thead>
         <tbody>
           <tr>
-            <td>1</td>
-            <td>Produto A</td>
-            <td>Categoria A</td>
-            <td>R$ 10,00</td>
-            <td>
-              <a href="#" class="btn btn-edit">Editar</a>
-              <a href="#" class="btn btn-delete">Excluir</a>
-            </td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Produto B</td>
-            <td>Categoria B</td>
-            <td>R$ 20,00</td>
-            <td>
-              <a href="#" class="btn btn-edit">Editar</a>
-              <a href="#" class="btn btn-delete">Excluir</a>
-            </td>
+           <?php
+          $sql = 'SELECT p.ProdutoID, p.Nome AS NomeProduto, c.Nome AS NomeCategoria, p.Preco
+                  FROM produtos p
+                  JOIN categorias c ON p.CategoriaID = c.CategoriaID';
+        $retorno = mysqli_query($conexao, $sql); 
+        while ($linha = mysqli_fetch_assoc($retorno)) {
+          echo '    <tr>
+              <td>'.$linha['ProdutoID'].'</td>
+              <td>'.$linha['NomeProduto'].'</td>
+              <td>'.$linha['NomeCategoria'].'</td>
+              <td>'.$linha['Preco'].'</td>
+              <td>
+                <a href="salvar-produtos.php?id='.$linha['ProdutoID'].'" class="btn btn-edit">Editar</a>
+                <a href="excluir-produtos.php?id='.$linha['ProdutoID'].'" class="btn btn-delete">Excluir</a>
+              </td>
+            </tr>
+           ';
+        }
+        ?>;
           </tr>
 
         </tbody>
