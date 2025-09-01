@@ -21,27 +21,24 @@ include_once './include/header.php';
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Dado A</td>
-              <td>1</td>
-              <td>Verde</td>
+            <?php
+          $sql = 'SELECT * FROM setor';
+        $retorno = mysqli_query($conexao, $sql);
+        while ($linha = mysqli_fetch_assoc($retorno)) {
+          echo '    <tr>
+              <td>'.$linha['SetorID'].'</td>
+              <td>'.$linha['Nome'].'</td>
+              <td>'.$linha['Andar'].'</td>
+              <td>'.$linha['Cor'].'</td>
               <td>
-                <a href="#" class="btn btn-edit">Editar</a>
-                <a href="#" class="btn btn-delete">Excluir</a>
+                <a href="salvar-setores.php?id='.$linha['SetorID'].'" class="btn btn-edit">Editar</a>
+                <a href="excluir-setores.php?id='.$linha['SetorID'].'" class="btn btn-delete">Excluir</a>
               </td>
             </tr>
-            <tr>
-              <td>2</td>
-              <td>Dado B</td>
-              <td>1</td>
-              <td>Verde</td>
-              <td>
-                <a href="#" class="btn btn-edit">Editar</a>
-                <a href="#" class="btn btn-delete">Excluir</a>
-              </td>
-            </tr>
-            
+           ';
+        }
+        ?>;
+          
           </tbody>
         </table>
       </div>
