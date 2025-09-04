@@ -8,7 +8,7 @@ include_once './include/header.php';
 
     <div class="container">
         <h1>Lista de Categorias</h1>
-        <a href="./salvar-categorias.php" class="btn btn-add">Incluir</a>
+        <a href="./salvar-categorias.php" class="btn btn-add">Incluir </a>
         <table>
           <thead>
             <tr>

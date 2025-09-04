@@ -10,8 +10,7 @@ include_once './include/header.php';
         <h1>Lista de Produções</h1>
         <a href="./salvar-producao.php" class="btn btn-add">Incluir</a> 
         <table>
-          <thead>
-            
+          <thead>   
           <tr>
               <th>ID</th>
               <th>Produto</th>
