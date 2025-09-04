@@ -23,10 +23,25 @@ include_once './include/header.php';
           <input type="text" placeholder="CPF">
           <input type="text" placeholder="RG">
           <select>
-            <option value="">Cargo</option>
+          <?php
+            
+            $sql = 'SELECT CargoID, Nome FROM cargos';
+            $retorno = mysqli_query($conexao, $sql); 
+            echo '<option value="">Cargo</option>';
+            while ($linha = mysqli_fetch_assoc($retorno)) {
+              echo '<option value="'.$linha['CargoID'].'">'.$linha['Nome'].'</option>';
+            }
+          ?>  
           </select>
           <select>
-            <option value="">Setor</option>
+          <?php
+            $sql = 'SELECT SetorID, Nome FROM setor';
+            $retorno = mysqli_query($conexao, $sql); 
+            echo '<option value="">Setor</option>';
+            while ($linha = mysqli_fetch_assoc($retorno)) {
+              echo '<option value="'.$linha['SetorID'].'">'.$linha['Nome'].'</option>';
+            }
+          ?>
           </select>
           <button type="submit">Salvar</button>
         </form>
