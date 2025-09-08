@@ -9,6 +9,7 @@ include_once './include/header.php';
     <div class="container">
         <h1>Lista de Setores</h1>
         <a href="./salvar-setores.php" class="btn btn-add">Incluir</a>
+        
         <table>
           <thead>
             <tr>
