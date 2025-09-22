@@ -33,8 +33,4 @@ if( isset($_GET['id']) ){
       <button type="submit">Salvar</button>
     </form>
   </div>
-  </main>
-<?php
-// include dos arquivos
-include_once './include/footer.php';
-?>
+ 

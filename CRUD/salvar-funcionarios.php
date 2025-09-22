@@ -65,26 +65,3 @@ if( isset($_GET['id']) ){
   // include dos arquivos
   include_once './include/footer.php';
   ?>
-           <option value=" ">Cargo</option>
-           <?php
-           $sql = 'SELECT CargoID, Nome FROM cargos ORDER BY Nome ASC;';
-           $return = mysqli_query($conexao, $sql);
-           while($linha = mysqli_fetch_assoc($return)){
-            echo '<option value="'.$linha['CargoID'].'">'.$linha['Nome'].'</option>';
-           }
-           ?>
-          </select>
-          <select>
-          <option value="'.$dados['SetorID'].'">'.$dados['nomeSetor'].'</option>';
-           <option value=" ">Setor</option>
-           <?php
-           $sql = 'SELECT SetorID, Nome FROM setor ORDER BY Nome ASC;';
-           $return = mysqli_query($conexao, $sql);
-           while($linha = mysqli_fetch_assoc($return)){
-            echo '<option value="'.$linha['SetorID'].'">'.$linha['Nome'].'</option>';
-           }
-           ?>
-          </select>
-          <button type="submit">Salvar</button>
-        </form>
-      </div>  
