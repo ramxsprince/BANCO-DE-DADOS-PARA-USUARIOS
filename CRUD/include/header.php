@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sistema Empresarial</title>
   <link rel="stylesheet" href="./assets/style.css?v=<?php echo date("YmdHis").rand(0,9999999);?>">
+  <link rel="stylesheet" href="./assets/style.css">
   <style>
     
   </style>

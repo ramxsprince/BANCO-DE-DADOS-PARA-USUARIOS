@@ -1,10 +1,10 @@
 <?php
-// Constantes de conexão com o banco (DB - DataBase)
-define('DBSERVER', 'localhost'); // endereço do servidor
-define('DBUSER', 'root'); // usuário de acesso ao MySQL
-define('DBPASS', ''); // senha de acesso ao MySQL
-define('DBBASE', 'empresa'); // nome da base de banco de dados
+//Constantes para conexão com o banco
+define('DBHOST' ,'localhost');
+define('DBUSER' ,'root');
+define('DBPASS', '' );
+define('DBBASE' ,'empresa');
 
-// Variável de conexão com o banco de dados
-$conexao = mysqli_connect(DBSERVER, DBUSER, DBPASS, DBBASE);
-
+//Conectar no banco
+$conexao = mysqli_connect(DBHOST, DBUSER, DBPASS, DBBASE)
+?>

@@ -1,5 +1,5 @@
 <?php 
-// include dos arquivox
+// include dos arquivos
 include_once './include/logado.php';
 include_once './include/conexao.php';
 include_once './include/header.php';
@@ -20,37 +20,35 @@ include_once './include/header.php';
             </tr>
           </thead>
           <tbody>
-      <?php 
-          $sql = 'SELECT * FROM cargos';
+            <tr>
+            <?php
+                // montando o SQL que seá executado no banco de dados
+                $sql = 'SELECT * FROM cargos;';
 
-        $retorno = mysqli_query($conexao, $sql);
-        
-        while ($linha = mysqli_fetch_assoc($retorno)) {
-          echo '    <tr>
+                // executar o SQL e guardar o retorno
+                $return = mysqli_query($conexao, $sql);
+
+                //listar todos os dados
+                while($linha = mysqli_fetch_assoc($return)){
+                    echo '<tr id="'.$linha['CargoID'].'">
               <td>'.$linha['CargoID'].'</td>
               <td>'.$linha['Nome'].'</td>
-              <td>'.$linha['TetoSalarial'].'</td>
+              <td>'.'R$ '.number_format($linha['TetoSalarial'], 2, ',', '.').'</td>
+
               <td>
-                <a href="salvar-cargos.php?id=" class="btn btn-edit">Editar</a>
-                <a href="#" class="btn btn-delete">Excluir</a>
+                <a href="./salvar-cargos.php?id='.$linha['CargoID'].'" class="btn btn-edit">Editar</a>
+                <a href="./action/cargos.php?id='.$linha['CargoID'].'&acao=excluir" class="btn btn-delete">Excluir</a>
               </td>
-            </tr>
-           ';
-          
-          
-          # code...
-        }
-        
-        
-        
-        
-        ?>  
+            </tr>';
+                };
+                ?>   
           </tbody>
         </table>
       </div> 
   </main>
   
   <?php 
-  // include dos arquivox
+  // include dos arquivos
   include_once './include/footer.php';
   ?>
+CRUD/lista-cargos.php at main · avilazdudu/CRUD

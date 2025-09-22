@@ -4,53 +4,31 @@ include_once './include/logado.php';
 include_once './include/conexao.php';
 include_once './include/header.php';
 
-// Buscar funcionários, produtos e clientes do banco de dados
-$sqlFuncionarios = 'SELECT FuncionarioID, Nome FROM funcionarios';
-$resultadoFuncionarios = mysqli_query($conexao, $sqlFuncionarios);
+$id = $_GET['id'];
 
-$sqlProdutos = 'SELECT ProdutoID, Nome FROM produtos';
-$resultadoProdutos = mysqli_query($conexao, $sqlProdutos);
+$sql = 'SELECT ProducaoID, c.Nome AS NomeCliente, DataProducao, f.Nome AS NomeFunc, p.Nome AS NomeProduto FROM producao
+          INNER JOIN produtos AS p ON producao.ProdutoID = p.ProdutoID
+          INNER JOIN funcionarios AS f ON producao.FuncionarioID = f.FuncionarioID
+          INNER JOIN clientes AS c ON producao.ClienteID = c.ClienteID
+          ORDER BY ProducaoID ASC
+          WHERE ProducaoID ='.$id;
+$return = mysqli_query($conexao, $sql);
+$dados = mysqli_fetch_assoc($return);
 
-$sqlClientes = 'SELECT ClienteID, Nome FROM clientes';
-$resultadoClientes = mysqli_query($conexao, $sqlClientes);
 ?>
   <main>
 
     <div id="producao" class="tela">
-        <form class="crud-form" method="post" action="salvar-producao.php">
+        <form class="crud-form" method="post" action="">
           <h2>Cadastro de Produção de Produtos</h2>
-          <label for="funcionario">Funcionário:</label>
-          <select name="funcionario" id="funcionario" required>
-            <option value="">Selecione um funcionário</option>
-            <?php
-            while ($funcionario = mysqli_fetch_assoc($resultadoFuncionarios)) {
-              echo '<option value="'.$funcionario['FuncionarioID'].'">'.$funcionario['Nome'].'</option>';
-            }
-            ?>
+          <select>
           </select>
-
-          <label for="produto">Produto:</label>
-          <select name="produto" id="produto" required>
-            <option value="">Selecione um produto</option>
-            <?php
-            while ($produto = mysqli_fetch_assoc($resultadoProdutos)) {
-              echo '<option value="'.$produto['ProdutoID'].'">'.$produto['Nome'].'</option>';
-            }
-            ?>
-          </select>
-
-          <label for="cliente">Cliente:</label>
-          <select name="cliente" id="cliente" required>
-            <option value="">Selecione um cliente</option>
-            <?php
-            while ($cliente = mysqli_fetch_assoc($resultadoClientes)) {
-              echo '<option value="'.$cliente['ClienteID'].'">'.$cliente['Nome'].'</option>';
-            }
-            ?>
+          <select>
           </select>
           <label for="">Data da entrega</label>
           <input type="date" placeholder="Data da Entrega">
-          <input type="number" placeholder="Quantidade Produzida">
+          <select>
+          </select>
           <button type="submit">Salvar</button>
         </form>
       </div>
@@ -59,4 +37,4 @@ $resultadoClientes = mysqli_query($conexao, $sqlClientes);
   <?php 
   // include dos arquivox
   include_once './include/footer.php';
-  ?>
+  ?> 
