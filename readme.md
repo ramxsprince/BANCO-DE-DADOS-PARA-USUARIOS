@@ -251,5 +251,3 @@ $stmt->execute([$id]);
 </div>
 
 ***
-
-**Copie e cole direto no GitHub! 🚀**
