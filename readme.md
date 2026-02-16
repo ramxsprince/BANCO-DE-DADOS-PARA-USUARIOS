@@ -35,7 +35,7 @@ Sistema web **full CRUD** para gerenciamento completo de usuários, desenvolvido
 - **Zero dependências externas**
 
 <div align="center">
-  <img src="https://via.placeholder.com/800x400/1e3a8a/60a5fa?text=CRUD+Usuarios+PHP+MySQL" alt="Demo Sistema" width="100%">
+  <img src="https://via.placeholder.com/800x400/1e3a8a/60a5fa?text=CRUD+Usuarios+PHP+MySQL](https://www.rtek.com.br/wp-content/uploads/2016/12/sistema-empresarial.jpg" alt="Demo Sistema" width="100%">
 </div>
 
 ***
@@ -251,3 +251,4 @@ $stmt->execute([$id]);
 </div>
 
 ***
+
